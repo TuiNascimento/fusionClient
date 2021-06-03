@@ -14,3 +14,19 @@ h1 {
 input[type=text], label {
   margin-bottom: 8px;
 }
+
+.tasksContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 61em;
+  margin: auto;
+}
+
+.taskBox{
+  width: 19em;
+  border: 1px solid black;
+  margin: 0.5em;
+  padding-bottom: 7em;
+}
+

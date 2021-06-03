@@ -40,32 +40,34 @@ module.exports = {
             console.log("Not possible to obtain user information --getUserNeoid() -->" + error)
         }
     },
-    getTasks: async function(fusionUrl, JSESSIONID, userNeoid){
-        try {
-            const {data} = await axios({
-                method: 'post',
-                url: fusionUrl + "/services/task/tasks/user/" + userNeoid,
-                headers:{
-                    Cookie: JSESSIONID,
-                    'content-encoding': 'gzip',
-                    'content-type': 'application/json;charset=utf-8'
-                },
-                data:{
-                    boxId: -1,
-                    boxType: "INBOX",
-                    currentUser: userNeoid,
-                    groupBy: "DUEDATE",
-                    inGroup: true,
-                    offset: 0,
-                    order: "asc",
-                    range: 20,
-                    showInboxPool: false}
-            })
+    getTasks: async function(fusionUrl, JSESSIONID, userNeoid)
+        {
+            try {
+                const {data} = await axios({
+                    method: 'post',
+                    url: fusionUrl + "/services/task/tasks/user/" + userNeoid,
+                    headers:{
+                        Cookie: JSESSIONID,
+                        'content-encoding': 'gzip',
+                        'content-type': 'application/json;charset=utf-8'
+                    },
+                    data:{
+                        boxId: -1,
+                        boxType: "INBOX",
+                        currentUser: userNeoid,
+                        groupBy: "DUEDATE",
+                        inGroup: true,
+                        offset: 0,
+                        order: "asc",
+                        range: 20,
+                        showInboxPool: false}
+                })
 
-            return data
-            
-        } catch (error) {
-            console.log(error)
+                return data
+            }
+            catch (error) 
+            {
+                console.log(error)
+            }
         }
-    }
 }
